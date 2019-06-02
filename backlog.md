@@ -1,4 +1,4 @@
-##### Week two
+##### Week Two
 * Decided to create an app that allows users to convert 
 numbers between Number Systems (Decimal -> Binary, Binary -> Decimal
 etc.)
@@ -18,3 +18,13 @@ etc.)
     
 Time spent: ~ 2hrs.
 
+##### Week Three
+* Added base classes for Activities and Fragments
+
+* Added three Fragments: BinaryKeyboardFragment, DecimalKeyboardFragment and HexKeyboardFragments
+
+* Updated the layout of the MainActivity to use a ViewPager and added layouts for each of the three Fragments
+
+* Finished implementing the layout for the DecimalKeyboardFragment
+
+Time spent: ~ 2hrs.
