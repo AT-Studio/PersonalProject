@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/table_border"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="1"
+                android:layout_column="1"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="2"
+                android:layout_column="2"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="3"
+                android:layout_column="3"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="A"
+                android:layout_column="4"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="4"
+                android:layout_column="1"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="5"
+                android:layout_column="2"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="6"
+                android:layout_column="3"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="B"
+                android:layout_column="4"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="1"
+                android:layout_column="1"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="2"
+                android:layout_column="2"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="3"
+                android:layout_column="3"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="C"
+                android:layout_column="4"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text=""
+                android:layout_column="1"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="F"
+                android:layout_column="2"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="E"
+                android:layout_column="3"/>
+
+            <TextView
+                style="@style/DecimalKeyboardElement"
+                android:text="D"
+                android:layout_column="4"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</FrameLayout>

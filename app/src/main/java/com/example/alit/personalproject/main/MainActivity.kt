@@ -1,15 +1,24 @@
 package com.example.alit.personalproject.main
 
 import Base.BaseActivity
+import Base.BaseFragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.ViewPager
 import android.widget.LinearLayout
 import com.example.alit.personalproject.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClickListener, BinaryKeyboardFragment.OnBinaryNumberClickListener,
+    HexKeyboardFragment.OnHexNumberClickListener{
+
+    companion object {
+        const val DECIMAL = "Decimal"
+        const val BINARY = "Binary"
+        const val HEX = "Hex"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,25 +28,96 @@ class MainActivity : BaseActivity() {
 
         vp_activity_main.adapter = KeyboardStatePagerAdapter(supportFragmentManager)
 
-        vp_activity_main.post {
+        rl_activity_main_content.post {
             val vpParams = vp_activity_main.layoutParams as LinearLayout.LayoutParams
             vpParams.height = vp_activity_main.width
             vp_activity_main.layoutParams = vpParams
+
+//            val dashParams = fl_activity_main_dashboard.layoutParams as RelativeLayout.LayoutParams
+//            Log.d("heights", "main content: ${rl_activity_main_content.height}")
+//            Log.d("heights", "main content: ${ll_main_keyboard_wrapper.height}")
+//            dashParams.height = rl_activity_main_content.height - (vpParams.height + getPixels(56))
+//            fl_activity_main_dashboard.layoutParams = dashParams
         }
+
+        vp_activity_main.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                tv_activity_main_in_number_system.setText((vp_activity_main.adapter as KeyboardStatePagerAdapter).getPageTitle(position))
+            }
+        })
+
+        iv_activity_main_in_left.setOnClickListener {
+            vp_activity_main.arrowScroll(ViewPager.FOCUS_LEFT)
+        }
+
+        iv_activity_main_in_right.setOnClickListener {
+            vp_activity_main.arrowScroll(ViewPager.FOCUS_RIGHT)
+        }
+
+        iv_activity_main_out_left.setOnClickListener {
+            val currentText = tv_activity_main_out_number_system.text.toString()
+            when (currentText) {
+                in DECIMAL -> tv_activity_main_out_number_system.setText(DECIMAL)
+                in BINARY -> tv_activity_main_out_number_system.setText(DECIMAL)
+                in HEX -> tv_activity_main_out_number_system.setText(BINARY)
+            }
+        }
+
+        iv_activity_main_out_right.setOnClickListener {
+            val currentText = tv_activity_main_out_number_system.text.toString()
+            when (currentText) {
+                in DECIMAL -> tv_activity_main_out_number_system.setText(BINARY)
+                in BINARY -> tv_activity_main_out_number_system.setText(HEX)
+                in HEX -> tv_activity_main_out_number_system.setText(HEX)
+            }
+        }
+    }
+
+    override fun onDecimalNumberClicked(hexNumber: Char) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onBinaryNumberClicked(hexNumber: Char) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onHexNumberClicked(hexNumber: Char) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     inner class KeyboardStatePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-        val itemCount = 3;
+        val numberSystems = arrayOf(DECIMAL, BINARY, HEX)
 
         override fun getItem(position: Int): Fragment {
-            if (position == 0) return DecimalKeyboardFragment.create()
-            else if (position == 1) return BinaryKeyboardFragment.create()
-            else return HexKeyboardFragment.create()
+            val fragment: BaseFragment
+            if (position == 0) {
+                fragment = DecimalKeyboardFragment.create()
+                fragment.setOnDecimalNumberClickListener(this@MainActivity)
+            }
+            else if (position == 1) {
+                fragment = BinaryKeyboardFragment.create()
+                fragment.setOnBinaryNumberClickListener(this@MainActivity)
+            }
+            else {
+                fragment = HexKeyboardFragment.create()
+                fragment.setOnHexNumberClickListener(this@MainActivity)
+            }
+            return fragment
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return numberSystems[position]
         }
 
         override fun getCount(): Int {
-            return itemCount
+            return numberSystems.size
         }
 
     }

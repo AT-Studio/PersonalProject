@@ -21,9 +21,19 @@ class DecimalKeyboardFragment : BaseFragment() {
 
     lateinit var rootView: View
 
+    lateinit var listener: OnDecimalNumberClickListener
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_main_decimal, container, false)
         return rootView
+    }
+
+    fun setOnDecimalNumberClickListener(listener: OnDecimalNumberClickListener) {
+        this.listener = listener
+    }
+
+    interface OnDecimalNumberClickListener {
+        fun onDecimalNumberClicked(hexNumber: Char);
     }
 
 }

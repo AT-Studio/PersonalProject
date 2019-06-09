@@ -21,9 +21,19 @@ class HexKeyboardFragment : BaseFragment() {
 
     lateinit var rootView: View
 
+    lateinit var listener: OnHexNumberClickListener
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_main_hex, container, false)
         return rootView
+    }
+
+    fun setOnHexNumberClickListener(listener: OnHexNumberClickListener) {
+        this.listener = listener
+    }
+
+    interface OnHexNumberClickListener {
+        fun onHexNumberClicked(hexNumber: Char);
     }
 
 }

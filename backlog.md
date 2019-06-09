@@ -16,7 +16,7 @@ etc.)
     4. Convert number entered in real-time and display it in the center
     of the top section of the screen
     
-Time spent: ~ 2hrs.
+Time spent: ~2hrs.
 
 ##### Week Three
 * Added base classes for Activities and Fragments
@@ -27,4 +27,20 @@ Time spent: ~ 2hrs.
 
 * Finished implementing the layout for the DecimalKeyboardFragment
 
-Time spent: ~ 2hrs.
+Time spent: ~2hrs.
+
+##### Week Four
+* Finished implementing the layouts for the remaining keyboard fragments
+
+* Attached click listeners in the Main Activity for keyboard clicks inside of the fragments (still need to be implemented)
+
+* ViewPager can be used to switch between keyboards by swiping
+
+* User can use arrows to choose input and output Number System
+
+* Remaining TODOs:
+    * Attach click listeners to TextViews (in keyboards)
+    * Implement logic for number conversion
+    * Select color palette for app
+    
+Time spent: ~2hrs.
