@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
+import android.util.Log
 import android.widget.LinearLayout
 import com.example.alit.personalproject.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,6 +26,9 @@ class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClic
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         supportActionBar!!.title = "Number System Converter"
+
+        tv_activity_main_input.setText("")
+        tv_activity_main_result.setText("")
 
         vp_activity_main.adapter = KeyboardStatePagerAdapter(supportFragmentManager)
 
@@ -49,6 +53,8 @@ class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClic
 
             override fun onPageSelected(position: Int) {
                 tv_activity_main_in_number_system.setText((vp_activity_main.adapter as KeyboardStatePagerAdapter).getPageTitle(position))
+                tv_activity_main_input.setText("")
+                tv_activity_main_result.setText("")
             }
         })
 
@@ -79,16 +85,29 @@ class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClic
         }
     }
 
-    override fun onDecimalNumberClicked(hexNumber: Char) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onDecimalNumberClicked(decimalNumber: Char) {
+        Log.d("keyboardNum", "decimal num: $decimalNumber")
+        val numberIn = tv_activity_main_input.text.toString() + decimalNumber
+        tv_activity_main_input.setText(numberIn)
+        val resultNumberSystem = tv_activity_main_out_number_system.text.toString()
+        //TODO: make sure number is not bigger than int
+        when (resultNumberSystem) {
+            in DECIMAL -> tv_activity_main_result.setText(numberIn)
+            in BINARY -> tv_activity_main_result.setText(Integer.toBinaryString(Integer.parseInt(numberIn)))
+            in HEX -> tv_activity_main_result.setText(Integer.toHexString(Integer.parseInt(numberIn)))
+        }
     }
 
-    override fun onBinaryNumberClicked(hexNumber: Char) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBinaryNumberClicked(binaryNumber: Char) {
+        Log.d("keyboardNum", "binary num: $binaryNumber")
+        val numberIn = tv_activity_main_input.text.toString() + binaryNumber
+        tv_activity_main_input.setText(numberIn)
     }
 
     override fun onHexNumberClicked(hexNumber: Char) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d("keyboardNum", "hex num: $hexNumber")
+        val numberIn = tv_activity_main_input.text.toString() + hexNumber
+        tv_activity_main_input.setText(numberIn)
     }
 
     inner class KeyboardStatePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {

@@ -44,3 +44,19 @@ Time spent: ~2hrs.
     * Select color palette for app
     
 Time spent: ~2hrs.
+
+##### Week Five
+* Updated decimal fragment layout
+
+* Attached click listeners to TextViews (in keyboards)
+
+* Input by user is shown in the input TextView
+
+* Result from input (if input is in decimal) is shown in result TextView
+
+* Remaining TODOs:
+    * Make sure decimal input is not larger than Integer.MAX_VALUE
+    * Add conversion for binary and hex
+    * Select color palette for app
+    
+Time spent: ~ 2hrs.

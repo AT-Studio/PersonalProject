@@ -16,21 +16,25 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_1"
                 style="@style/DecimalKeyboardElement"
                 android:text="1"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_2"
                 style="@style/DecimalKeyboardElement"
                 android:text="2"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_3"
                 style="@style/DecimalKeyboardElement"
                 android:text="3"
                 android:layout_column="3"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_A"
                 style="@style/DecimalKeyboardElement"
                 android:text="A"
                 android:layout_column="4"/>
@@ -43,21 +47,25 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_4"
                 style="@style/DecimalKeyboardElement"
                 android:text="4"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_5"
                 style="@style/DecimalKeyboardElement"
                 android:text="5"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_6"
                 style="@style/DecimalKeyboardElement"
                 android:text="6"
                 android:layout_column="3"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_B"
                 style="@style/DecimalKeyboardElement"
                 android:text="B"
                 android:layout_column="4"/>
@@ -70,21 +78,25 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_7"
                 style="@style/DecimalKeyboardElement"
-                android:text="1"
+                android:text="7"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_8"
                 style="@style/DecimalKeyboardElement"
-                android:text="2"
+                android:text="8"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_9"
                 style="@style/DecimalKeyboardElement"
-                android:text="3"
+                android:text="9"
                 android:layout_column="3"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_C"
                 style="@style/DecimalKeyboardElement"
                 android:text="C"
                 android:layout_column="4"/>
@@ -97,21 +109,25 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_0"
                 style="@style/DecimalKeyboardElement"
-                android:text=""
+                android:text="0"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_F"
                 style="@style/DecimalKeyboardElement"
                 android:text="F"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_E"
                 style="@style/DecimalKeyboardElement"
                 android:text="E"
                 android:layout_column="3"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_hex_D"
                 style="@style/DecimalKeyboardElement"
                 android:text="D"
                 android:layout_column="4"/>

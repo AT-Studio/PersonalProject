@@ -16,16 +16,19 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_1"
                 style="@style/DecimalKeyboardElement"
                 android:text="1"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_2"
                 style="@style/DecimalKeyboardElement"
                 android:text="2"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_3"
                 style="@style/DecimalKeyboardElement"
                 android:text="3"
                 android:layout_column="3"/>
@@ -38,16 +41,19 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_4"
                 style="@style/DecimalKeyboardElement"
                 android:text="4"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_5"
                 style="@style/DecimalKeyboardElement"
                 android:text="5"
                 android:layout_column="2"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_6"
                 style="@style/DecimalKeyboardElement"
                 android:text="6"
                 android:layout_column="3"/>
@@ -60,18 +66,44 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_decimal_7"
                 style="@style/DecimalKeyboardElement"
-                android:text="1"
+                android:text="7"
+                android:layout_column="1"/>
+
+            <TextView
+                android:id="@+id/tv_fragment_main_decimal_8"
+                style="@style/DecimalKeyboardElement"
+                android:text="8"
+                android:layout_column="2"/>
+
+            <TextView
+                android:id="@+id/tv_fragment_main_decimal_9"
+                style="@style/DecimalKeyboardElement"
+                android:text="9"
+                android:layout_column="3"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_fragment_main_decimal_0"
+                style="@style/DecimalKeyboardElement"
+                android:text="0"
                 android:layout_column="1"/>
 
             <TextView
                 style="@style/DecimalKeyboardElement"
-                android:text="2"
+                android:text=""
                 android:layout_column="2"/>
 
             <TextView
                 style="@style/DecimalKeyboardElement"
-                android:text="3"
+                android:text=""
                 android:layout_column="3"/>
 
         </TableRow>

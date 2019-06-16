@@ -16,11 +16,13 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_fragment_main_binary_0"
                 style="@style/DecimalKeyboardElement"
                 android:text="0"
                 android:layout_column="1"/>
 
             <TextView
+                android:id="@+id/tv_fragment_main_binary_1"
                 style="@style/DecimalKeyboardElement"
                 android:text="1"
                 android:layout_column="2"/>
