@@ -73,6 +73,8 @@ class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClic
                 in BINARY -> tv_activity_main_out_number_system.setText(DECIMAL)
                 in HEX -> tv_activity_main_out_number_system.setText(BINARY)
             }
+            tv_activity_main_input.setText("")
+            tv_activity_main_result.setText("")
         }
 
         iv_activity_main_out_right.setOnClickListener {
@@ -82,32 +84,69 @@ class MainActivity : BaseActivity(), DecimalKeyboardFragment.OnDecimalNumberClic
                 in BINARY -> tv_activity_main_out_number_system.setText(HEX)
                 in HEX -> tv_activity_main_out_number_system.setText(HEX)
             }
+            tv_activity_main_input.setText("")
+            tv_activity_main_result.setText("")
         }
     }
 
     override fun onDecimalNumberClicked(decimalNumber: Char) {
         Log.d("keyboardNum", "decimal num: $decimalNumber")
         val numberIn = tv_activity_main_input.text.toString() + decimalNumber
+        val number: Int
+        try {
+            number = Integer.parseInt(numberIn)
+        } catch (e: Exception) {
+            tv_activity_main_input.setText("Input too large")
+            tv_activity_main_result.setText("N/A")
+            return
+        }
         tv_activity_main_input.setText(numberIn)
         val resultNumberSystem = tv_activity_main_out_number_system.text.toString()
-        //TODO: make sure number is not bigger than int
         when (resultNumberSystem) {
             in DECIMAL -> tv_activity_main_result.setText(numberIn)
-            in BINARY -> tv_activity_main_result.setText(Integer.toBinaryString(Integer.parseInt(numberIn)))
-            in HEX -> tv_activity_main_result.setText(Integer.toHexString(Integer.parseInt(numberIn)))
+            in BINARY -> tv_activity_main_result.setText(Integer.toBinaryString(number))
+            in HEX -> tv_activity_main_result.setText(Integer.toHexString(number))
         }
     }
 
     override fun onBinaryNumberClicked(binaryNumber: Char) {
         Log.d("keyboardNum", "binary num: $binaryNumber")
         val numberIn = tv_activity_main_input.text.toString() + binaryNumber
+        val number: Int
+        try {
+            number = Integer.parseInt(numberIn, 2)
+        } catch (e: Exception) {
+            tv_activity_main_input.setText("Input too large")
+            tv_activity_main_result.setText("N/A")
+            return
+        }
         tv_activity_main_input.setText(numberIn)
+        val resultNumberSystem = tv_activity_main_out_number_system.text.toString()
+        when (resultNumberSystem) {
+            in DECIMAL -> tv_activity_main_result.setText(number.toString())
+            in BINARY -> tv_activity_main_result.setText(numberIn)
+            in HEX -> tv_activity_main_result.setText(Integer.toHexString(number))
+        }
     }
 
     override fun onHexNumberClicked(hexNumber: Char) {
         Log.d("keyboardNum", "hex num: $hexNumber")
         val numberIn = tv_activity_main_input.text.toString() + hexNumber
+        val number: Int
+        try {
+            number = Integer.parseInt(numberIn, 16)
+        } catch (e: Exception) {
+            tv_activity_main_input.setText("Input too large")
+            tv_activity_main_result.setText("N/A")
+            return
+        }
         tv_activity_main_input.setText(numberIn)
+        val resultNumberSystem = tv_activity_main_out_number_system.text.toString()
+        when (resultNumberSystem) {
+            in DECIMAL -> tv_activity_main_result.setText(number.toString())
+            in BINARY -> tv_activity_main_result.setText(Integer.toBinaryString(number))
+            in HEX -> tv_activity_main_result.setText(numberIn)
+        }
     }
 
     inner class KeyboardStatePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {

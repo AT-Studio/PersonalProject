@@ -60,3 +60,12 @@ Time spent: ~2hrs.
     * Select color palette for app
     
 Time spent: ~ 2hrs.
+
+##### Week Six
+* Add conversion between binary and hex
+
+* Fix crash for inputs larger than Integer.MAX_VALUE
+
+* Add different color palette
+
+Time spent: ~2hrs.
